@@ -1,0 +1,837 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&family=Poppins:wght@300;400;700&display=swap');
+
+$primary: hsl(190, 69%, 28%);
+$secondary: hsl(192, 43%, 50%);
+$accent: hsl(190, 42%, 65%);
+$border: hsl(24, 22%, 91%);
+$text: hsl(0, 0, 100%);
+$altText: hsl(0, 0, 0%);
+$warning: hsl(35, 100%, 70%);
+$boxshadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+$PlayFont: 'Play', sans-serif;
+$PoppinsFont: 'Poppins', sans-serif;
+
+@mixin button($margin) {
+	margin: $margin;
+	padding: 1rem 2rem;
+	color: $text;
+	background-color: $primary;
+	border-radius: 15px;
+	cursor: pointer;
+	font-family: 'Play', sans-serif;
+	font-weight: bold;
+	transition: background-color 0.5s ease;
+	&:hover {
+		background-color: $secondary;
+	}
+}
+
+@mixin container() {
+	width: 100vw;
+	max-height: 85vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin form($width, $height, $padding) {
+	border: 3px solid $accent;
+	padding: $padding;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 25px;
+	width: $width;
+	min-height: $height;
+	margin: 0 2rem;
+	font-family: $PoppinsFont;
+	box-shadow: $boxshadow;
+	background-color: $text;
+}
+
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	vertical-align: baseline;
+	font-size: 100%;
+}
+
+.Nav-Container {
+	min-height: 10vh;
+	width: 100vw;
+	top: 0;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-family: $PlayFont;
+	background-color: $primary;
+	z-index: 10;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+	.Logo {
+		margin-left: 3rem;
+		h1 {
+			color: $text;
+			font-size: 2.25rem;
+		}
+	}
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		.Cart-Icon,
+		.Signin {
+			color: $text;
+			font-size: 1.2rem;
+			i {
+				padding-right: 0.25rem;
+			}
+		}
+		.Signin {
+			margin-left: 2rem;
+		}
+	}
+	.username {
+		display: flex;
+		align-items: center;
+		width: 3rem;
+		font-size: 1.2rem;
+		margin-left: 2rem;
+		color: $text;
+		h5:first-child {
+			user-select: none;
+		}
+		h5:nth-child(2) {
+			cursor: pointer;
+		}
+	}
+	a {
+		text-decoration: none;
+		h1,
+		h5 {
+			transition: color 0.5s ease;
+		}
+		h1:hover,
+		h5:hover {
+			color: hsl(0, 0%, 71%);
+		}
+	}
+}
+
+.Search {
+	height: 2rem;
+	display: flex;
+	input {
+		width: 25vw;
+		padding: 15px 0 15px 25px;
+		border-radius: 5px 0 0 5px;
+	}
+	button {
+		width: 5vw;
+		color: $text;
+		background-color: $secondary;
+		border-radius: 0 5px 5px 0;
+	}
+	button:hover {
+		cursor: pointer;
+	}
+}
+
+main {
+	min-height: 90vh;
+	margin-top: 10vh;
+	background-color: hsl(120, 3%, 94%);
+}
+
+.Message {
+	display: inline-block;
+	padding: 0.75rem 1.75rem;
+	background-color: $warning;
+	border-radius: 10px;
+	border: 2px solid hsl(35, 100%, 38%);
+	font-family: $PoppinsFont;
+	margin: 0 auto;
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color: $secondary;
+	}
+}
+
+.Carousel {
+	min-width: 100vw;
+	height: 50vh;
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	background-color: $text;
+	border-bottom: 1px solid $border;
+	.Carousel-Item {
+		margin-left: 5vw;
+		a {
+			text-decoration: none;
+		}
+	}
+	.Carousel-Title {
+		width: 30rem;
+		margin-top: 0.5rem;
+		h2 {
+			text-align: center;
+			color: hsl(0, 0, 0%);
+			font-size: 1.5rem;
+			font-family: 'Play', sans-serif;
+		}
+	}
+	img {
+		height: 95%;
+		border-radius: 20px;
+	}
+}
+
+.Product-List {
+	height: 100vh;
+	display: grid;
+	justify-content: space-evenly;
+	grid-template-columns: repeat(4, 20%);
+	h1 {
+		grid-column-start: span 4;
+		margin: 1rem 2rem 0;
+		font-size: 2.25rem;
+		flex: 1 100%;
+		font-family: 'Play', sans-serif;
+	}
+}
+
+.Product {
+	width: 20vw;
+	height: 19rem;
+	margin: 1rem 1rem;
+	background-color: hsl(120, 3%, 94%);
+	border-radius: 30px;
+	box-shadow: $boxshadow;
+	.Product-Image {
+		width: 100%;
+		border-radius: 30px 30px 0 0;
+		border-bottom: 1px solid gray;
+	}
+	.Product-Info {
+		height: 4.5rem;
+		display: flex;
+		flex-direction: column;
+		.Product-Name {
+			text-decoration: none;
+			h3 {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 1.1rem;
+				margin: 0.5rem 1rem;
+				color: $secondary;
+				text-align: center;
+			}
+		}
+		.Product-Rating {
+			text-align: center;
+			display: flex;
+			margin-left: 1rem;
+			align-items: center;
+			.Product-Price {
+				padding-left: 1rem;
+				font-size: 1.15rem;
+				color: $secondary;
+			}
+		}
+	}
+}
+
+.ProductContainer {
+	height: 100vh;
+	.ProductOverview {
+		margin-top: 10vh;
+		display: flex;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid gray;
+		img {
+			margin: 5vh 5vw 0;
+			height: 30rem;
+			width: 35%;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	}
+	.ProductDescription {
+		margin-top: 5vh;
+		h2 {
+			font-family: 'Play', sans-serif;
+			font-size: 2.25rem;
+			width: 40rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.ProductPrice {
+			width: 92%;
+			padding: 1.5rem 2rem 1rem 0;
+			border-bottom: 1px solid gray;
+			padding-left: 2rem;
+		}
+		h3 {
+			font-size: 1.25rem;
+			font-family: $PoppinsFont;
+			font-weight: 400;
+			margin: 1rem 0;
+			padding-left: 2rem;
+		}
+		button {
+			@include button(1.5rem 0 0 2rem);
+		}
+	}
+	.ProductQty {
+		display: flex;
+		padding: 2rem 0;
+		height: 2rem;
+		width: 92%;
+		align-items: center;
+		border-bottom: 1px solid gray;
+		select {
+			height: 2rem;
+			width: 3rem;
+			padding: 0.5rem;
+			margin-left: 1rem;
+			border: 1px solid gray;
+			border-radius: 5px;
+		}
+	}
+	.ProductReviewSection {
+		width: 100vw;
+		margin: 1rem 2rem;
+		display: flex;
+		align-items: center;
+		.ProductReviews {
+			width: 60%;
+			height: 25vh;
+			overflow-y: scroll;
+			border-right: 2px solid gray;
+		}
+		.ProductReviewSignin {
+			text-align: center;
+			width: 35%;
+			height: 25vh;
+		}
+		h2 {
+			font-size: 1.4rem;
+			font-family: $PoppinsFont;
+			padding-bottom: 1rem;
+		}
+	}
+}
+
+.Rating-Text {
+	padding-left: 0.7rem;
+	color: $secondary;
+	font-weight: bold;
+	font-size: 1.05rem;
+	font-family: $PoppinsFont;
+	user-select: none;
+}
+
+.Cart {
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 3rem;
+	font-family: $PoppinsFont;
+	overflow-y: scroll;
+	h1 {
+		font-size: 1.4rem;
+		margin-bottom: 2.5rem;
+	}
+	.Cart-Item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 50vw;
+		background-color: $secondary;
+		border-radius: 20px;
+		margin-bottom: 1rem;
+		box-shadow: $boxshadow;
+		img {
+			width: 20%;
+			border-radius: 20px 0 0 20px;
+		}
+		a {
+			color: $text;
+			text-decoration: none;
+			font-size: 1.3rem;
+			width: 17rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			transition: color 0.5s ease;
+		}
+		a:hover {
+			color: hsl(0, 0%, 71%);
+		}
+		h2 {
+			color: white;
+			font-weight: 400;
+			user-select: none;
+		}
+		select {
+			border-radius: 5px;
+			width: 2.5rem;
+			cursor: pointer;
+		}
+		button {
+			margin: 0 2rem 0 1rem;
+			color: white;
+			background-color: $secondary;
+			cursor: pointer;
+		}
+	}
+}
+
+.CartTotal {
+	min-height: 20vh;
+	width: 20vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: $PoppinsFont;
+	border-top: 2px solid gray;
+	button {
+		@include button(1rem 0);
+	}
+}
+
+.SignupContainer,
+.LoginContainer {
+	@include container();
+	min-height: 80vh;
+	form {
+		@include form(30vw, 50vh, 1rem 4rem 0);
+		h1 {
+			font-size: 1.8rem;
+			margin: 2rem 0 1rem;
+			font-family: $PlayFont;
+			text-align: center;
+			user-select: none;
+		}
+		label {
+			user-select: none;
+			margin-top: 1rem;
+		}
+		input[type='text'] {
+			border: none;
+			border-bottom: 2px solid $accent;
+			min-width: 15rem;
+			padding: 0.5rem;
+			background: none;
+		}
+		button {
+			@include button(2rem auto 1rem);
+			min-width: 9rem;
+		}
+		h2 {
+			margin: 1.5rem 0;
+			text-align: center;
+			a {
+				text-decoration: none;
+				color: $accent;
+				transition: color 0.5s ease;
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+.ShippingContainer,
+.PaymentContainer {
+	@include container();
+	form {
+		@include form(30vw, 60vh, 0 4rem);
+		h1 {
+			font-size: 1.8rem;
+			margin: 2rem 0 1rem;
+			font-family: $PlayFont;
+			text-align: center;
+			user-select: none;
+		}
+		label {
+			user-select: none;
+			margin-top: 1rem;
+		}
+		input[type='text'] {
+			border: none;
+			border-bottom: 2px solid $accent;
+			min-width: 15rem;
+			padding: 0.5rem;
+			background: none;
+		}
+		button {
+			@include button(2rem auto 1rem);
+			min-width: 9rem;
+		}
+		h2 {
+			margin: 1.5rem 0;
+			text-align: center;
+			a {
+				text-decoration: none;
+				color: $accent;
+				transition: color 0.5s ease;
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+.PaymentType {
+	display: flex;
+	max-height: 2rem;
+	min-width: 5.5rem;
+	margin: 0 auto;
+	justify-content: flex-start;
+	align-items: center;
+	input[type='radio'] {
+		min-width: 1rem;
+		display: inline-block;
+		&:disabled {
+			color: hsl(0, 0, 80%);
+		}
+	}
+	label {
+		padding: 0 0 1rem 0.5rem;
+	}
+}
+
+.CustomerReview {
+	width: 80%;
+	height: 10rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-family: $PoppinsFont;
+	.SelectContainer,
+	.CommentContainer {
+		display: flex;
+		justify-content: space-between;
+	}
+	label {
+		font-size: 1rem;
+		font-weight: bold;
+		margin-right: 1.5rem;
+	}
+	select {
+		margin: 0 10rem .5rem 0;
+		border-radius: 15px;
+	}
+	textarea {
+		border: 1px solid gray;
+		margin-left: 1rem;
+		width: 18rem;
+		height: 5rem;
+		resize: none;
+		border-radius: 10px;
+		margin-right: 1rem;
+	}
+	button {
+		@include button(0.5rem auto 0);
+		max-width: 8rem;
+	}
+}
+
+.CheckoutSteps {
+	display: flex;
+	justify-content: space-evenly;
+	min-width: 40%;
+	font-family: $PoppinsFont;
+	margin: 3rem 0 2rem;
+	font-size: 1.05rem;
+	a {
+		text-decoration: none;
+		& > h2 {
+			color: $primary;
+		}
+	}
+	h2 {
+		color: $accent;
+		user-select: none;
+	}
+}
+
+.PlaceOrderContainer {
+	@include container();
+	.OrderOverview {
+		@include form(50vw, 70vh, 1rem 2rem);
+		.ItemOverview {
+			display: flex;
+			flex-direction: column;
+			min-height: 50%;
+			overflow-y: scroll;
+			border-bottom: 1px solid gray;
+			margin-bottom: 1.5rem;
+			.OrderItem {
+				margin: 0.5rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background-color: $accent;
+				border-radius: 25px;
+				border: 1px solid $accent;
+				img {
+					width: 15%;
+					border-radius: 25px 0 0 25px;
+				}
+				a {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					width: 16rem;
+					margin: 0 1rem;
+					text-decoration: none;
+					color: $altText;
+				}
+				h2 {
+					width: 13rem;
+				}
+			}
+		}
+	}
+	.ShippingPayment {
+		display: flex;
+		width: auto;
+		min-height: 30%;
+		.ShippingDetails {
+			min-width: 50%;
+			border-right: 1px solid gray;
+			.OrderShipping,
+			.PaymentMethod {
+				display: flex;
+				flex-direction: column;
+				padding-left: 0.5rem;
+				h1 {
+					text-align: center;
+					margin: 0.5rem 0;
+				}
+				p {
+					margin-left: 0.5rem;
+				}
+			}
+			.PaymentMethod > div {
+				display: flex;
+			}
+		}
+		.OrderSummary {
+			min-width: 50%;
+			display: flex;
+			flex-direction: column;
+			h1 {
+				text-align: center;
+				margin: 0.5rem 0;
+			}
+			h2 {
+				margin-left: 1rem;
+				font-weight: 400;
+				text-align: start;
+				width: 5.5rem;
+			}
+			strong {
+				margin-left: 0.5rem;
+			}
+			& > div {
+				display: flex;
+				justify-content: space-between;
+				width: 15rem;
+				margin-left: 2rem;
+				padding-left: 2rem;
+			}
+		}
+	}
+	button {
+		@include button(0.75rem auto 0);
+	}
+}
+
+.OrderContainer {
+	@include container();
+	font-family: $PoppinsFont;
+	h1 {
+		font-size: 1.5rem;
+		margin: 2.5rem 0 1rem;
+	}
+	.OrderDetails {
+		display: flex;
+		justify-content: space-evenly;
+		width: 55vw;
+		margin: 0.5rem auto 0;
+		.ShippingDetails,
+		.PaymentDetails {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+			h2 {
+				text-align: center;
+			}
+		}
+		.PaymentDetails {
+			border-left: 2px solid gray;
+			padding-left: 2rem;
+			p {
+				margin: 1.5rem 0;
+			}
+		}
+	}
+	.ItemDetails {
+		max-width: 60vw;
+		max-height: 45vh;
+		min-height: 45vh;
+		margin-top: 1rem;
+		padding: 1rem 0;
+		border-top: 2px solid gray;
+		border-bottom: 2px solid gray;
+		overflow-y: scroll;
+		.OrderItem {
+			margin: 0.5rem auto;
+			width: 80%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background-color: $accent;
+			border-radius: 25px;
+			img {
+				width: 15%;
+				border-radius: 25px 0 0 25px;
+			}
+			a {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 16rem;
+				margin: 0 1rem;
+				text-decoration: none;
+				color: $altText;
+			}
+			h2 {
+				width: 13rem;
+			}
+		}
+	}
+	.OrderSummary {
+		min-width: 50%;
+		display: flex;
+		flex-direction: column;
+		h1 {
+			text-align: center;
+			margin: 0.25rem 0;
+		}
+		div {
+			display: flex;
+			justify-content: space-evenly;
+			width: 60vw;
+			h2 {
+				margin-left: 1rem;
+				font-weight: 400;
+				text-align: start;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.Loader {
+	font-size: 10px;
+	margin: 50px auto;
+	text-indent: -9999em;
+	width: 11em;
+	height: 11em;
+	border-radius: 50%;
+	background: $primary;
+	background: -moz-linear-gradient(
+		left,
+		$primary 10%,
+		rgba(255, 255, 255, 0) 42%
+	);
+	background: -webkit-linear-gradient(
+		left,
+		$primary 10%,
+		rgba(255, 255, 255, 0) 42%
+	);
+	background: -o-linear-gradient(
+		left,
+		$primary 10%,
+		rgba(255, 255, 255, 0) 42%
+	);
+	background: -ms-linear-gradient(
+		left,
+		$primary 10%,
+		rgba(255, 255, 255, 0) 42%
+	);
+	background: linear-gradient(
+		to right,
+		$primary 10%,
+		rgba(255, 255, 255, 0) 42%
+	);
+	position: relative;
+	-webkit-animation: load 1.4s infinite linear;
+	animation: load 1.4s infinite linear;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+.Loader:before {
+	width: 50%;
+	height: 50%;
+	background: $primary;
+	border-radius: 100% 0 0 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+}
+
+.Loader:after {
+	background: hsl(120, 3%, 94%);
+	width: 75%;
+	height: 75%;
+	border-radius: 50%;
+	content: '';
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+@-webkit-keyframes load {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes load {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
